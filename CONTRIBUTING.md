@@ -28,6 +28,7 @@ When submitting an issue, please follow these simple instructions:
   - The sails version (find this with ````sails -v````).
   - Detailed explanation of how to recreate the issue
 7. If you are experiencing more than one problem, create a separate issue for each one. If you think they might be related, please reference the other issues you've created.
+8. If you have found a security vulnerability in Sails, _please do not report it in a public issue_. You can find instructions for alerting us in the [security policy](https://github.com/balderdashy/sails-docs/blob/master/security/SAILS-SECURITY-POLICY.md).
 
 
 
@@ -101,7 +102,7 @@ The custom generator API is very new, and still experimental.  If you are seriou
 
 ###### Submitting Pull Requests
 
-0. If you don't know how to fork and PR, [follow our instructions on contributing](https://github.com/balderdashy/sails-docs/blob/0.9/Contributing-to-Sails.md).
+0. If you don't know how to fork and PR, [follow our instructions on contributing](https://github.com/balderdashy/sails-docs/blob/master/contributing/Sending-Pull-Requests.md).
 1. Fork the repo.
 2. Add a test for your change. Only refactoring and documentation changes require no new tests. If you are adding functionality or fixing a bug, we need a test!
 4. Make the tests pass and make sure you follow [our syntax guidelines](https://github.com/balderdashy/sails/blob/master/.jshintrc).

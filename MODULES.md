@@ -70,8 +70,13 @@ Below, you'll find an overview of the modules maintained by the core team and co
 
 ### Officially-supported hooks
 
-> Currently contained in core Sails repo.
+| Hook           | Repo       |  Build Status (edge)             | Purpose                  | Depends on...   |
+|----------------|------------|----------------------------------|--------------------------|-----------------|
+| `sockets`      | [sails-hook-sockets](https://github.com/balderdashy/sails-hook-sockets)  | [![Build Status](https://travis-ci.org/balderdashy/sails-hook-sockets.png?branch=master)](https://travis-ci.org/balderdashy/sails-hook-sockets)  | Implemments Socket.io support in Sails.  | `http`  |
+| `http`         | [`/lib/hooks/http`](https://github.com/balderdashy/sails/tree/master/lib/hooks/http)      | [![Build Status](https://travis-ci.org/balderdashy/sails.png?branch=master)](https://travis-ci.org/balderdashy/sails) | Implements basic HTTP server functionality. |  _n/a_ |
+| TODO: list other hooks currently contained in Sails core | _n/a_ | TODO | TODO | TODO |
 
+> The code for the hooks listed above without specific repos is currently contained in sub-folders within Sails core.  See [`lib/hooks/`](https://github.com/balderdashy/sails/tree/master/lib/hooks)
 
 ### Socket Client SDKs
 
@@ -117,6 +122,7 @@ Below, you'll find an overview of the modules maintained by the core team and co
 | [sails-nedb](https://github.com/balderdashy/sails-riak) | | | NeDB |
 | [sails-parse](https://github.com/tskaggs/sails-parse) | | | Parse |
 | [sails-tingo](https://github.com/andyhu/sails-tingo) | | | TingoDB |
+| [sails-orientdb](https://github.com/appscot/sails-orientdb) | [![Build Status](https://travis-ci.org/appscot/sails-orientdb.svg?branch=master)](https://travis-ci.org/appscot/sails-orientdb) | [![npm version](https://badge.fury.io/js/sails-orientdb.svg)](http://badge.fury.io/js/sails-orientdb) | OrientDB |
 
 
 #### Generators
@@ -131,6 +137,7 @@ Below, you'll find an overview of the modules maintained by the core team and co
 | [sails-generate-gulpfile](https://github.com/Karnith/sails-generate-gulpfile) |          |
 | [sails-generate-bower-gulp](https://github.com/Karnith/sails-generate-bower-gulp) |          |
 | [sails-generate-angular-gulp](https://github.com/Karnith/sails-generate-angular-gulp) |          |
+| [sails-generate-ember-blueprints](https://github.com/mphasize/sails-generate-ember-blueprints) |          |
 
 
 #### Socket Client SDKs
