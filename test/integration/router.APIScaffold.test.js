@@ -42,9 +42,7 @@ describe('router :: ', function() {
     });
 
     after(function() {
-      // console.log('before `chdir ../`' + ', cwd was :: ' + process.cwd());
       process.chdir('../');
-      // console.log('after `chdir ../`' + ', cwd was :: ' + process.cwd());
       appHelper.teardown();
     });
 
@@ -183,6 +181,22 @@ describe('router :: ', function() {
       });
     });
 
+    describe('a post of JSON array request to /:controller/create', function() {
+      it('should return JSON array for a newly created instances of the test model', function (done) {
+        httpHelper.testRoute('post', {
+          url: 'empty/create',
+          json: true,
+          body: [{stuff: "bad"}, {stuff: "ghuud"}]
+        }, function (err, response) {
+          if (err) return done(new Error(err));
+          assert(response.body instanceof Array,  Err.badResponse(response));
+          assert.equal(response.body.length, 2,  Err.badResponse(response));
+          assert.equal(response.body[1].stuff, "ghuud", Err.badResponse(response));
+          done();
+        });
+      });
+    });
+
     describe('with pluralize turned on', function() {
 
       before(function() {
@@ -203,9 +217,33 @@ describe('router :: ', function() {
         });
       });
 
+      it('should bind blueprint actions to plural controller names (quiz => quizzes)', function(done) {
+        httpHelper.testRoute('get', {
+          url: 'quizzes',
+          json: true
+        }, function(err, response) {
+          if (err) done(new Error(err));
+
+          assert(response.body instanceof Array);
+          done();
+        });
+      });
+
       it('should not bind blueprint actions to singular controller names', function(done) {
         httpHelper.testRoute('get', {
           url: 'empty',
+          json: true
+        }, function(err, response) {
+          if (err) done(new Error(err));
+
+          assert(response.statusCode === 404);
+          done();
+        });
+      });
+
+      it('should not bind blueprint actions to singular controller names (quiz)', function(done) {
+        httpHelper.testRoute('get', {
+          url: 'quiz',
           json: true
         }, function(err, response) {
           if (err) done(new Error(err));
@@ -323,6 +361,7 @@ describe('router :: ', function() {
 
     });
 
+
     describe('`prefix` and `restPrefix` config options set together :: ', function() {
 
       before(function() {
@@ -358,6 +397,7 @@ describe('router :: ', function() {
 
     });
 
+
   });
 
   describe('API scaffold routes', function() {
@@ -376,9 +416,7 @@ describe('router :: ', function() {
 
     after(function() {
       sailsprocess.kill();
-      // console.log('before `chdir ../`' + ', cwd was :: ' + process.cwd());
       process.chdir('../');
-      // console.log('after `chdir ../`' + ', cwd was :: ' + process.cwd());
       appHelper.teardown();
     });
 
